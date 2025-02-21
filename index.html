@@ -143,7 +143,7 @@
 <body>
     <div class="container">
         <h1>🔮 Truth Teller 🔮</h1>
-        <p>Ask a question and get your fortune!</p>
+        <p>Ask only yes or no question and get your answer!</p>
         <input type="text" id="question" placeholder="Ask your question...">
         <button onclick="getTruth()">Get Truth</button>
         <p id="response"></p>
@@ -186,6 +186,12 @@
                 "It is certain", "Very doubtful", "Signs point to yes", "Outlook not so good"
             ];
 
+            questionInput.addEventListener("keypress", (event) => {
+                    if (event.key === "Enter") {
+                        getTruth();
+                    }
+            });
+
             // Special responses for specific questions
             let specialResponses = {
                 "who are you?": "I am the Truth Teller, the keeper of secrets...",
@@ -198,7 +204,7 @@
                 "will i be rich?": "Fortune favors the bold, but greed consumes all...",
                 "is there life after death?": "The veil is thin, but the answer lies beyond...",
                 "can you read my mind?": "I see... I see... nothing. Just kidding, I see everything.",
-                "what is love?": "Love is a mystery, even to me...",
+                "what is love?": "Love is a mystery, even to me.....",
                 "are you real?": "As real as the shadows in your dreams...",
                 "what is the truth?": "The truth is what you make of it..."
             };
