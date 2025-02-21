@@ -155,6 +155,12 @@
         const responseElement = document.getElementById("response");
         const photoElement = document.getElementById("photo");
 
+        questionInput.addEventListener("keypress", (event) => {
+                    if (event.key === "Enter") {
+                        getTruth();
+                    }
+        });
+
         // Clear the response and photo when typing in the input box
         questionInput.addEventListener("input", () => {
             responseElement.style.opacity = 0;
@@ -186,11 +192,7 @@
                 "It is certain", "Very doubtful", "Signs point to yes", "Outlook not so good"
             ];
 
-            questionInput.addEventListener("keypress", (event) => {
-                    if (event.key === "Enter") {
-                        getTruth();
-                    }
-            });
+            
 
             // Special responses for specific questions
             let specialResponses = {
